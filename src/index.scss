@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+:root {
+  --primary-color: #ffbb00;
+  --primary-color-lite: #d5f88e;
+  --text-color: #333;
+  --text-color-lite: rgb(99, 99, 99);
+  --input-color: #aaa;
+  --input-border: #ddd;
+  --main-nav-bg: rgb(26, 0, 14);
+  --main-nav-bg-lite: rgba(26, 0, 14, 0.24);
+  --glass-input: rgba(109, 80, 95, 0.719);
+  --glass-bg: rgba(255, 255, 255, 0.452);
+
+  --section-title: #ffbb00;
+  --footer-bg: #000;
+  --footer-color: rgb(218, 216, 216);
+
+  --btn-blue: rgb(71, 71, 223);
+  --btn-blue-hover: rgb(58, 58, 209);
+  --btn-blue-active: rgb(23, 23, 156);
+
+  --btn-default: #ddd;
+  --btn-default-hover: rgb(199, 199, 199);
+  --btn-default-active: rgb(136, 136, 136);
+}
+
+html {
+  font-size: 10px;
+}
+body,
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  image-rendering: optimizeQuality;
+  line-height: 1.42857;
+  font-family: "raleway";
+  color: var(--text-color);
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+li {
+  outline: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
