@@ -1,0 +1,14 @@
+.main-nav{
+    width: 110%;
+    -webkit-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    -moz-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    background-color: var(--main-nav);
+    z-index: 1;
+}
+.app-bar{
+    width: 100%;
+    background: #fff;
+    height: 45px;
+    box-sizing: border-box;
+}
