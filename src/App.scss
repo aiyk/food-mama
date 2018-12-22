@@ -25,3 +25,156 @@
   width: calc(100% - 30px);
   height: calc(100% - 65px);
 }
+
+.nice-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: var(--main-nav-bg-lite);
+}
+
+.nice::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--main-nav-bg-lite);
+}
+
+.nice::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #aaa;
+}
+
+form{
+  width: 100%;
+}
+.form-err{
+  color: #ff2500;
+}
+.input-group{
+  width: 100%;
+  position: relative;
+  text-align: left;
+  margin-bottom: 20px;
+  .site-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 2rem;
+      color: var(--input-color);
+      border: 1px solid var(--input-border);
+      outline: 0;
+      &:focus {
+        border: 1px solid var(--primary-color);
+      }
+  }
+  .input-err{
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      color: #ff2500;
+      font-size: 1rem;
+  }
+  .input-info{
+      font-size: 1rem;
+      color: #777;
+  }
+}
+.btn {
+  display: block;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.btn-center {
+  margin: 0 auto;
+}
+.btn-full{
+  width: 90%;
+}
+.btn-x1 {
+  padding: 5px 40px;
+  font-size: 1.6rem;
+}
+.btn-x2 {
+  padding: 10px 40px;
+  font-size: 1.6rem;
+}
+.btn-blue {
+  color: #fff;
+  background-color: var(--btn-blue);
+  &:hover {
+    background-color: var(--btn-blue-hover);
+  }
+  &:active {
+    background-color: var(btn-blue-active);
+  }
+}
+.btn-default {
+    background-color: var(--btn-default);
+    &:hover {
+        background-color: var(--btn-default-hover);
+    }
+    &:active {
+        background-color: var(btn-default-active);
+    }
+}
+.btn-hollow {
+    background-color: transparent;
+    color: var(--primary-color);
+    &:hover {
+        background-color: var(--primary-color-lite); 
+        color: #000;
+    }
+}
+.btn-hollow-border {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    &:hover {
+        background-color: var(--primary-color); 
+        color: #000;
+    }
+}
+.btn-hollow-border-white {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    &:hover {
+        color: #000;
+    }
+}
+.btn-rounded{
+  border-radius: 30px;
+}
+.action-link{
+  color: var(--section-title);
+  cursor: pointer;
+  font-size: 1.6rem;
+  border-bottom: 1px solid transparent;
+  &:hover{
+      border-bottom: 1px solid var(--section-title);
+  }
+}
+
+.tab-menu{
+  width: 100%;
+  display: flex;
+  .tab-menu-item{
+      padding: 10px;
+      font-size: 2rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      &:hover{
+          border-bottom: 2px solid var(--main-nav-bg);
+      }
+  }
+  .active-tab{
+      background: rgba(255,255,255,0.3);
+      border-bottom: 2px solid transparent !important;
+  }
+}
+.tab-content{
+  background: rgba(255,255,255,0.3);
+  width: 100%;
+  min-height: calc(100% - 45px);
+  padding: 20px;
+  box-sizing: border-box;
+}

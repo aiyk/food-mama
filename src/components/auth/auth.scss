@@ -1,0 +1,14 @@
+.login-frm-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    form{
+        width: 400px;
+        padding: 20px;
+        box-sizing: border-box;
+        .btn{
+            margin: 20px auto;
+        }
+    }
+}

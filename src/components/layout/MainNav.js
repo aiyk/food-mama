@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import './layout.scss';
 
 export default function MainNav() {
@@ -10,12 +11,13 @@ export default function MainNav() {
             </div>
 
             <div className="nav-links">
-                <div className="nav-link">Dashboard</div>
-                <div className="nav-link">User Management</div>
-                <div className="nav-link">Payments</div>
-                <div className="nav-link">Food Menu Manager</div>
-                <div className="nav-link">Dashboard</div>
-                <div className="nav-link">Dashboard</div>
+                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                <Link to="/" className="nav-link">Users</Link>
+                <Link to="/" className="nav-link">Orders</Link>
+                <Link to="/" className="nav-link">Payments</Link>
+                <Link to="/" className="nav-link">Dispatch</Link>
+                <Link to="/" className="nav-link">Branches</Link>
+                <Link to="/" className="nav-link">System Settings</Link>
             </div>
 
             <div className="nav-footer">food mama copyright &copy; {(new Date()).getFullYear()}</div>
