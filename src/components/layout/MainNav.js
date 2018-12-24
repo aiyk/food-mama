@@ -12,12 +12,12 @@ export default function MainNav() {
 
             <div className="nav-links">
                 <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                <Link to="/" className="nav-link">Users</Link>
-                <Link to="/" className="nav-link">Orders</Link>
-                <Link to="/" className="nav-link">Payments</Link>
-                <Link to="/" className="nav-link">Dispatch</Link>
-                <Link to="/" className="nav-link">Branches</Link>
-                <Link to="/" className="nav-link">System Settings</Link>
+                <Link to="/users" className="nav-link">Users</Link>
+                <Link to="/orders" className="nav-link">Orders</Link>
+                <Link to="/payments" className="nav-link">Payments</Link>
+                <Link to="/dispatch" className="nav-link">Dispatch</Link>
+                <Link to="/branches" className="nav-link">Branches</Link>
+                <Link to="/settings" className="nav-link">System Settings</Link>
             </div>
 
             <div className="nav-footer">food mama copyright &copy; {(new Date()).getFullYear()}</div>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import './dashboard.scss'
+import './users.scss'
 
-class Dashboard extends Component {
+class Users extends Component {
     render() {
         return (
             <div>
-                Dashboard Works!!!
+                Users WOrks!!!
             </div>
         )
     }
 }
 
-export default Dashboard
+export default Users

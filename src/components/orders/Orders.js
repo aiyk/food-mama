@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import './dashboard.scss'
+import './orders.scss'
 
-class Dashboard extends Component {
+class Orders extends Component {
     render() {
         return (
             <div>
-                Dashboard Works!!!
+                Orders Works!!!
             </div>
         )
     }
 }
 
-export default Dashboard
+export default Orders
