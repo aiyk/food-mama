@@ -19,7 +19,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
           <MainNav />
           <div className="app-content-area">
             <div className="app-content-inwrap">
