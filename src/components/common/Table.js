@@ -37,7 +37,8 @@ class Table extends Component {
                 val: null
             },
             search: "",
-            searchKey: ""
+            searchKey: "",
+            openPopup: false
         };
     }
 
@@ -79,12 +80,6 @@ class Table extends Component {
                 return 0;
             })
         }
-    }
-    createCollection = () => {
-        const updatedCollection = [...this.state.collections, this.state.formData];
-        this.setState({
-            collections: updatedCollection
-        });
     }
     updateCollections = (event, key, itemID) => {
         let dataBack = Object.values(this.state.collections).find(data => data.ID === itemID);
@@ -227,6 +222,11 @@ class Table extends Component {
             search: event.target.value
         })
     }
+    toggle_modal = () => {
+        this.setState({
+            openPopup: !this.openPopup
+        })
+    }
 
     render() {
         return (
@@ -360,7 +360,12 @@ class Table extends Component {
                     {
                         this.state.openPopup
                             ? (
-                                <Modal collections_keys={this.collections_keys} createCollection={this.createCollection} />
+                                <Modal
+                                    collections_keys={this.collections_keys}
+                                    createCollection={this.createCollection}
+                                    openPopup={this.state.openPopup}
+                                    toggle_modal={this.toggle_modal}
+                                />
                             ) : (null)
                     }
 

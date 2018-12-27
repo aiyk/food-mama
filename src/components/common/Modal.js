@@ -6,14 +6,9 @@ export default class Modal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            openPopup: false,
+            openPopup: this.props.openPopup,
             modalTitle: "New Data Entry"
         }
-    }
-    toggle_modal = () => {
-        this.setState({
-            openPopup: !this.openPopup
-        })
     }
     updateObj = () => {
         let updatedCollection = [...this.state.collections];
@@ -31,14 +26,14 @@ export default class Modal extends Component {
         }
     }
     render() {
-        const { createCollection, collections_keys } = this.props;
+        const { createCollection, collections_keys, toggle_modal } = this.props;
 
         return (
             <div className="modal-overlay">
                 <div className="modal-wrap shadow">
                     <div className="modal-header">
                         <div className="modal-title">{this.state.modalTitle}</div>
-                        <img alt="" onClick={this.toggle_modal} src={TimesIco} />
+                        <img alt="" onClick={toggle_modal} src={TimesIco} />
                     </div>
 
                     <div className="modal-content">
