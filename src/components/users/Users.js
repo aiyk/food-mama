@@ -13,23 +13,10 @@ class Users extends Component {
 
     render() {
         const { users, loading } = this.props.user;
-        let userItems;
-
-        // if (users === null || loading) {
-        //     userItems = <Spinner />;
-        // } else {
-        //     if (users.length > 0) {
-        //         userItems = users.map(user => (
-        //             <div className="return-wrap" key={user._id}><ProfileItem profile={profile} /></div>
-        //         ))
-        //     } else {
-        //         userItems = <h4>No users found...</h4>;
-        //     }
-        // }
 
         return (
             <div>
-                <Table collections_props={this.state.collections} metaData_props={this.state.metaData} />
+                <Table payload={users} loading={loading} />
             </div>
         )
     }

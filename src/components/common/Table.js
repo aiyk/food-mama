@@ -12,8 +12,8 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            metaData: this.props.metaData_props,
-            collections: this.props.collections_props,
+            metaData: this.props.payload.metaData,
+            collections: this.props.payload.collections,
 
             sortState: true,
             ddmenu_tblmenu: false,
