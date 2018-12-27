@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Modal from './Modal'
 
 import PlusICO_whiteIco from '../../assets/icons/plus-white.svg'
 import AngleLeftIco from '../../assets/icons/angle-left.svg'
@@ -6,7 +7,6 @@ import AngleRightIco from '../../assets/icons/angle-right.svg'
 import FilterIco from '../../assets/icons/filter.svg'
 import EditIco from '../../assets/icons/edit.svg'
 import TrashRedIco from '../../assets/icons/trash-red.svg'
-import TimesIco from '../../assets/icons/times.svg'
 
 class Table extends Component {
     constructor(props) {
@@ -37,9 +37,7 @@ class Table extends Component {
                 val: null
             },
             search: "",
-            searchKey: "",
-            openPopup: false,
-            modalTitle: "New Data Entry"
+            searchKey: ""
         };
     }
 
@@ -191,21 +189,6 @@ class Table extends Component {
             collection: updatedCollection
         });
     }
-    updateObj = () => {
-        let updatedCollection = [...this.state.collections];
-        updatedCollection.payload.name = this.params.name //there isnt no params
-        this.setState({
-            collection: updatedCollection
-        });
-        if (this.state.payload.val) {
-            this.setState({
-                error: null
-            });
-            this.params._return(this.payload);
-        } else {
-            this.error = `${this.params.name} is required`;
-        }
-    }
     loadedCollection = (page = 1, perPage = 5) => {
         // this.search_key = this.searchKey;
         // this.search_val = this.search;
@@ -233,11 +216,6 @@ class Table extends Component {
             let obj = Object.values(this.state.collections);
             return Object.keys(obj[0]) || [];
         }
-    }
-    toggle_modal = () => {
-        this.setState({
-            openPopup: !this.openPopup
-        })
     }
     handleSearchKey = (event) => {
         this.setState({
@@ -382,32 +360,7 @@ class Table extends Component {
                     {
                         this.state.openPopup
                             ? (
-                                <div className="modal-overlay">
-                                    <div className="modal-wrap shadow">
-                                        <div className="modal-header">
-                                            <div className="modal-title">{this.state.modalTitle}</div>
-                                            <img alt="" onClick={this.toggle_modal} src={TimesIco} />
-                                        </div>
-
-                                        <div className="modal-content">
-                                            <form onSubmit={this.createCollection}>
-                                                {this.collections_keys().map(key =>
-                                                    <div className="input-group" key="key">
-                                                        <div className="input-group-label">{key}</div>
-                                                        <input className={[{ isInvalid: this.state.error }, 'form-control', 'form-control-lg']} name="key"
-                                                            type="text" onChange={this.updateObj} value={this.state.payload.val} />
-                                                        {
-                                                            this.state.error
-                                                                ? <div className="invalid-feedback">{this.state.error}</div>
-                                                                : null
-                                                        }
-                                                    </div>
-                                                )}
-                                                <button className="btn btn-blue">Submit</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Modal collections_keys={this.collections_keys} createCollection={this.createCollection} />
                             ) : (null)
                     }
 
