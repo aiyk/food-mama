@@ -1,12 +1,12 @@
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
-import profileReducer from "./profileReducer";
+import userReducer from "./userReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   errors: errorReducer,
-  profile: profileReducer
+  user: userReducer
 });
 
 export default rootReducer;

@@ -1,56 +1,56 @@
 import axios from 'axios';
 
 import {
-  GET_PROFILE,
-  GET_PROFILES,
-  PROFILE_LOADING,
-  CLEAR_CURRENT_PROFILE,
+  GET_USER,
+  GET_USERS,
+  USER_LOADING,
+  CLEAR_CURRENT_USER,
   GET_ERRORS,
   SET_CURRENT_USER
 } from './types';
 
-// Get current profile
-export const getCurrentProfile = () => dispatch => {
-  dispatch(setProfileLoading());
+// Get current user
+export const getCurrentUser = () => dispatch => {
+  dispatch(setUserLoading());
 
   axios
-    .get('/api/profile')
+    .get('/api/user')
     .then(res =>
       dispatch({
-        type: GET_PROFILE,
+        type: GET_USER,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_PROFILE,
+        type: GET_USER,
         payload: {}
       })
     );
 };
-// Get profile by id
-export const getProfileByUser = userid => dispatch => {
-  dispatch(setProfileLoading());
-  
+// Get user by id
+export const getUserById = userid => dispatch => {
+  dispatch(setUserLoading());
+
   axios
-    .get(`/api/profile/user/${userid}`)
+    .get(`/api/user/${userid}`)
     .then(res =>
       dispatch({
-        type: GET_PROFILE,
+        type: GET_USER,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_PROFILE,
+        type: GET_USER,
         payload: null
       })
     );
 };
-// Create Profile
-export const createProfile = (profileData, history) => dispatch => {
+// Create user
+export const createUser = (userData, history) => dispatch => {
   axios
-    .post('/api/profile', profileData)
+    .post('/api/user', userData)
     .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
@@ -60,31 +60,30 @@ export const createProfile = (profileData, history) => dispatch => {
     );
 };
 
-// Get all profiles
-export const getProfiles = () => dispatch => {
-  dispatch(setProfileLoading());
-  //delete axios.defaults.headers.common['Authorization'];
+// Get all users
+export const getUsers = () => dispatch => {
+  dispatch(setUserLoading());
   axios
-    .get('/api/profile/all')
+    .get('/api/user/all')
     .then(res =>
       dispatch({
-        type: GET_PROFILES,
+        type: GET_USERS,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_PROFILES,
+        type: GET_USERS,
         payload: null
       })
     );
 };
 
-// Delete account & profile
+// Delete account & USER
 export const deleteAccount = () => dispatch => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     axios
-      .delete('/api/profile')
+      .delete('/api/user')
       .then(res =>
         dispatch({
           type: SET_CURRENT_USER,
@@ -100,16 +99,16 @@ export const deleteAccount = () => dispatch => {
   }
 };
 
-// Profile loading
-export const setProfileLoading = () => {
+// User loading
+export const setUserLoading = () => {
   return {
-    type: PROFILE_LOADING
+    type: USER_LOADING
   };
 };
 
-// Clear profile
-export const clearCurrentProfile = () => {
+// Clear user
+export const clearCurrentUser = () => {
   return {
-    type: CLEAR_CURRENT_PROFILE
+    type: CLEAR_CURRENT_USER
   };
 };

@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 const axiosGlobals = () => {
-    //axios.defaults.baseURL = 'https://lets-hang.herokuapp.com';
-    axios.defaults.baseURL = 'http://localhost:5000';
-    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';   
+    axios.defaults.baseURL = 'http://foodmama.herokuapp.com';
+    //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 }
 
 export default axiosGlobals;
