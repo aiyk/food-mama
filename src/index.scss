@@ -26,21 +26,63 @@
   --btn-default: #ddd;
   --btn-default-hover: rgb(199, 199, 199);
   --btn-default-active: rgb(136, 136, 136);
+
+  --table-row-hover: #d8e5f1;
+  --text-primary: #040e28;
+  --text-secondary: #646d82;
+  --disabled: #a6b1c2;
+  --white: #ffffff;
+  --success: #22ce8b;
+  --success-lite: lighten(var(--success), 10%);
+  --error: #f46363;
+  --error-lite: rgba(245, 109, 109, 0.1);
+  --warning: #ffcd54;
+  --bg-grey-dark: #dce1ea;
+  --bg-grey-medium: #e6eaf0;
+  --bg-grey-light: #f0f2f7;
+  --bg-grey-lighter: #f9fafc;
+  --color-blue-lite: rgba(0, 110, 255, 0.1);
+  --color-blue-liter: rgba(0, 110, 255, 0.02);
+  --color-green-lite: rgba(34, 206, 139, 0.1);
+  --color-orange-lite: rgba(255, 173, 48, 0.1);
+  --main-bg-color: var(--bg-grey-light);
+  --shadow-color: rgba(148, 148, 148, 0.25);
+
+  --primary-button-color: #1f7fff;
+    --primary-button-hover-state: #3fa9f5;
+    --primary-button-pressed-state: #0071bc;
+    --primary-button-lite: rgba(0, 99, 233, 0.1);
+    --primary-button-lite-hover-state: rgba(0, 99, 233, 0.2);
+    --primary-button-lite-pressed-state: rgba(0, 99, 233, 0.3);
+    --hollow-button-border: #e9ecf2;
+    --hollow-button-hover-bg: #fafafb;
+    --green-button-hover-bg: #1ebd80;
+    --green-button-pressed-bg: #19ac73;
+    --green-button-lite: rgba(34, 206, 139, 0.1);
+    --green-button-lite-hover: rgba(20, 201, 131, 0.2);
+    --green-button-lite-pressed: rgba(20, 201, 131, 0.3);
+    --red-button-hover: #dd5252;
+    --red-button-pressed: #d64343;
+    --red-button-lite: rgba(244, 99, 99, 0.3);
+    --red-button-lite-hover: rgba(244, 99, 99, 0.4);
+    --red-button-lite-pressed: rgba(244, 99, 99, 0.5);
+    --input-disabled-bg: var(--bg-grey-lighter);
 }
 
 html {
   font-size: 10px;
 }
-body,
 * {
-  margin: 0;
-  padding: 0;
-  font-size: 1.4rem;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   image-rendering: optimizeQuality;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
   line-height: 1.42857;
   font-family: "raleway";
   color: var(--text-color);
