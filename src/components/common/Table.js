@@ -284,7 +284,7 @@ class Table extends Component {
 
                     </div>
 
-                    <div className="tbl">
+                    <div className="tbl nice nice-scroll">
                         <div>
                             <div className="tr thead">
                                 {
@@ -302,8 +302,8 @@ class Table extends Component {
 
                                 {
                                     this.state.metaData.trActions
-                                        ? <div className="td-actions"></div>
-                                        : null
+                                        ? (<div className="td-actions"></div>)
+                                        : (null)
                                 }
                             </div>
                         </div>

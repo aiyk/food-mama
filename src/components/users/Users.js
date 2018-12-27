@@ -43,6 +43,33 @@ class Users extends Component {
                     Created: "2017-07-23T04:24:49-07:00"
                 },
                 {
+                    ID: "3471DA17-4GGF-9633-BF81-4CADA6FD5C79",
+                    Name: "Danlami Mali",
+                    Phone: "08032323212",
+                    Email: "danlami.mali@gmail.com",
+                    Address: "No 2B Vernern Cresent, Alausa, Ikeja-Lagos, Nigeria.",
+                    Role: "Rider",
+                    Created: "2017-07-23T04:24:49-07:00"
+                },
+                {
+                    ID: "3471DA17-4GGF-9633-BF81-4CADA6FD5C79",
+                    Name: "Danlami Mali",
+                    Phone: "08032323212",
+                    Email: "danlami.mali@gmail.com",
+                    Address: "No 2B Vernern Cresent, Alausa, Ikeja-Lagos, Nigeria.",
+                    Role: "Rider",
+                    Created: "2017-07-23T04:24:49-07:00"
+                },
+                {
+                    ID: "3471DA17-4GGF-9633-BF81-4CADA6FD5C79",
+                    Name: "Danlami Mali",
+                    Phone: "08032323212",
+                    Email: "danlami.mali@gmail.com",
+                    Address: "No 2B Vernern Cresent, Alausa, Ikeja-Lagos, Nigeria.",
+                    Role: "Rider",
+                    Created: "2017-07-23T04:24:49-07:00"
+                },
+                {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Name: "Sandra Emeka",
                     Phone: "08032323212",
