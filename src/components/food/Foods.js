@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Spinner from '../common/Spinner'
-import { getFoods } from '../../store/actions/foodActions'
+import { getFoods, createFood, deleteFood } from '../../store/actions/foodActions'
 import Table from '../common/Table'
 import CreateFood from './CreateFood'
 import '../users/users.scss'
@@ -29,7 +29,13 @@ class Foods extends Component {
 
         return (
             <div>
-                <Table payload={foods} loading={loading} toggle_modal={this.toggle_modal} />
+                <Table
+                    payload={foods}
+                    loading={loading}
+                    toggle_modal={this.toggle_modal}
+                    handle_create={this.props.createFood}
+                    handle_delete={this.props.deleteFood}
+                />
                 {
                     this.state.openPopup
                         ? (<CreateFood toggle_modal={this.toggle_modal} />)
@@ -50,4 +56,4 @@ const mapStateToProps = (state) => ({
     food: state.food
 });
 
-export default connect(mapStateToProps, { getFoods })(Foods)
+export default connect(mapStateToProps, { getFoods, createFood, deleteFood })(Foods)

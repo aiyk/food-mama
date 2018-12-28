@@ -64,10 +64,10 @@ class App extends Component {
                   <Route exact path="/users" component={Users} />
                   <Route exact path="/enterprises" component={Enterprises} />
                   <Route exact path="/foods" component={Foods} />
+                  <Route exact path="/branches" component={Branches} />
                   <Route exact path="/orders" component={Orders} />
                   <Route exact path="/payments" component={Payments} />
                   <Route exact path="/dispatch" component={Dispatch} />
-                  <Route exact path="/branches" component={Branches} />
                   <Route exact path="/settings" component={Settings} />
                 </Switch>
 

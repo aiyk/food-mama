@@ -204,9 +204,19 @@ class Table extends Component {
             search: event.target.value
         })
     }
+    onEdit = (e) => {
+        e.preventDefault();
+        this.props.handle_create(this.state.formData, this.props.history);
+    }
+    handleChange = (e) => {
+        const target = this.state.formData[e.target.name];
+        this.setState({
+            [target]: e.target.value
+        });
+    }
 
     render() {
-        const { toggle_modal } = this.props;
+        const { toggle_modal, handle_delete, handle_create } = this.props;
         return (
             <div className="custom-table-wrapper">
                 <div id="data-table" className="table-wrap">

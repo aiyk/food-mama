@@ -15,3 +15,8 @@ export const GET_FOOD = 'GET_FOOD';
 export const GET_FOODS = 'GET_FOODS';
 export const FOOD_LOADING = 'FOOD_LOADING';
 export const FOOD_NOT_FOUND = 'FOOD_NOT_FOUND';
+
+export const GET_BRANCH = 'GET_BRANCH';
+export const GET_BRANCHES = 'GET_BRANCHES';
+export const BRANCH_LOADING = 'BRANCH_LOADING';
+export const BRANCH_NOT_FOUND = 'BRANCH_NOT_FOUND';
