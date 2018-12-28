@@ -70,9 +70,10 @@ form{
 .tab-menu{
   width: 100%;
   display: flex;
+  justify-content: flex-end;
   .tab-menu-item{
       padding: 10px;
-      font-size: 2rem;
+      font-size: 1.6rem;
       border-bottom: 2px solid transparent;
       cursor: pointer;
       &:hover{
@@ -80,7 +81,7 @@ form{
       }
   }
   .active-tab{
-      background: rgba(255,255,255,0.3);
+      color: rgb(0, 114, 190);
       border-bottom: 2px solid transparent !important;
   }
 }
