@@ -9,6 +9,20 @@ import {
   SET_CURRENT_USER
 } from './types';
 
+//Create user
+export const createUser = (userData, history) => dispatch => {
+  console.log(userData);
+  axios
+    .post('/sign-up', userData)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+}
+
 // Get current user
 export const getCurrentUser = () => dispatch => {
   dispatch(setUserLoading());
@@ -44,18 +58,6 @@ export const getUserById = userid => dispatch => {
       dispatch({
         type: GET_USER,
         payload: null
-      })
-    );
-};
-// Create user
-export const createUser = (userData, history) => dispatch => {
-  axios
-    .post('/api/user', userData)
-    .then(res => history.push('/dashboard'))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
       })
     );
 };

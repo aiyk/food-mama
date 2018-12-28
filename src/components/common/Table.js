@@ -81,29 +81,6 @@ class Table extends Component {
             })
         }
     }
-    updateCollections = (event, key, itemID) => {
-        let dataBack = Object.values(this.state.collections).find(data => data.ID === itemID);
-        const item_index = Object.values(dataBack).indexOf(dataBack[key]);
-        const obj_index = Object.values(this.state.collections).findIndex(data => data.ID === itemID);
-        const keyBack = Object.keys(dataBack);
-        const req_payload = event.srcElement.value;
-        const req_header = keyBack[item_index];
-
-        let updatedCollection = [...this.state.collections];
-        dataBack[req_header] = req_payload;
-        updatedCollection[obj_index] = dataBack;
-        this.setState({
-            collections: updatedCollection
-        });
-    }
-    deleteCollection = (payload) => {
-        const obj_index = Object.values(this.state.collections).findIndex(data => data.ID === payload);
-        let updatedCollection = [...this.state.collections];
-        updatedCollection.splice(obj_index, 1)
-        this.setState({
-            collections: updatedCollection
-        });
-    }
     setCollections = (payload) => {
         this.setState({
             collections: payload
@@ -177,13 +154,6 @@ class Table extends Component {
             collection: updatedCollection
         });
     }
-    inputVal = (payload) => {
-        let updatedCollection = [...this.state.collections];
-        updatedCollection.formData.push({ [payload.name]: payload.val });
-        this.setStatetate({
-            collection: updatedCollection
-        });
-    }
     loadedCollection = (page = 1, perPage = 5) => {
         // this.search_key = this.searchKey;
         // this.search_val = this.search;
@@ -222,13 +192,9 @@ class Table extends Component {
             search: event.target.value
         })
     }
-    toggle_modal = () => {
-        this.setState({
-            openPopup: !this.openPopup
-        })
-    }
 
     render() {
+        const { toggle_modal } = this.props;
         return (
             <div className="custom-table-wrapper">
                 <div id="data-table" className="table-wrap">
@@ -238,7 +204,7 @@ class Table extends Component {
                             <div className="table-subtitle">{this.state.metaData.tblSubtitle}</div>
                         </div>
                         <div className="table-ctas">
-                            <button onClick={this.toggle_modal} className="btn btn-blue">
+                            <button onClick={toggle_modal} className="btn btn-blue">
                                 <img alt="" src={PlusICO_whiteIco} /> Add New
                             </button>
                         </div>
@@ -354,21 +320,7 @@ class Table extends Component {
                                 ? <div className="table-subtitle">{this.metaData.tblSummary}</div>
                                 : null
                         }
-
                     </div>
-
-                    {
-                        this.state.openPopup
-                            ? (
-                                <Modal
-                                    collections_keys={this.collections_keys}
-                                    createCollection={this.createCollection}
-                                    openPopup={this.state.openPopup}
-                                    toggle_modal={this.toggle_modal}
-                                />
-                            ) : (null)
-                    }
-
                 </div>
             </div>
         )
