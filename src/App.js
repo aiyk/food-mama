@@ -14,6 +14,8 @@ import AppBar from './components/layout/AppBar'
 import Dashboard from './components/dashboard/Dashboard'
 import Login from './components/auth/Login'
 import Users from './components/users/Users'
+import Enterprises from './components/enterprise/Enterprises'
+import Foods from './components/food/Foods'
 import Orders from './components/orders/Orders'
 import Payments from './components/payments/Payments'
 import Dispatch from './components/dispatch/Dispatch'
@@ -60,6 +62,8 @@ class App extends Component {
                   <Route exact path="/dashboard" component={Dashboard} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/users" component={Users} />
+                  <Route exact path="/enterprises" component={Enterprises} />
+                  <Route exact path="/foods" component={Foods} />
                   <Route exact path="/orders" component={Orders} />
                   <Route exact path="/payments" component={Payments} />
                   <Route exact path="/dispatch" component={Dispatch} />

@@ -88,27 +88,39 @@ class Table extends Component {
     }
 
     item_to_show = (i) => {
-        return this.clickItemIndex === i;
+        return this.state.clickItemIndex === i;
     }
     item_to_edit = (i) => {
-        return this.editTrIndex === i;
+        return this.state.editTrIndex === i;
     }
     tblmenu_onclick = () => {
-        this.ddmenu_tblmenu = !this.ddmenu_tblmenu;
+        this.setState({
+            ddmenu_tblmenu: !this.state.ddmenu_tblmenu
+        });
     }
     tblmenuitem_onclick = (itemIndex) => {
-        if (this.clickItemIndex === itemIndex) {
-            this.clickItemIndex = null;
+        if (this.state.clickItemIndex === itemIndex) {
+            this.setState({
+                clickItemIndex: null
+            });
         } else {
-            this.clickItemIndex = itemIndex;
+            this.setState({
+                clickItemIndex: itemIndex
+            });
         }
-        this.ddmenu_tblitem = !this.ddmenu_tblitem;
+        this.setState({
+            ddmenu_tblitem: !this.state.ddmenu_tblitem
+        })
     }
     editTr_onclick = (itemIndex) => {
-        if (this.editTrIndex === itemIndex) {
-            this.editTrIndex = null;
+        if (this.state.editTrIndex === itemIndex) {
+            this.setState({
+                editTrIndex: null
+            });
         } else {
-            this.editTrIndex = itemIndex;
+            this.setState({
+                editTrIndex: itemIndex
+            });
         }
     }
     deleteTr_onclick = (itemIndex) => {
@@ -246,8 +258,8 @@ class Table extends Component {
 
                                 {
                                     this.state.metaData.trActions
-                                        ? (<div className="td-actions"></div>)
-                                        : (null)
+                                        ? <div className="td-actions"></div>
+                                        : null
                                 }
                             </div>
                         </div>
@@ -267,15 +279,25 @@ class Table extends Component {
                                                 }
                                                 {Object.values(item).map((val, key) =>
                                                     <div key={key} className="td">
+                                                        {/* {console.log(Object.keys(item))} */}
                                                         {
-                                                            this.item_to_edit(index)
-                                                                ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
-                                                                : <span>{val}</span>
+                                                            this.collections_keys[key] === 'Image'
+                                                                ? (
+                                                                    this.item_to_edit(index)
+                                                                        ? <input type="file" className="td-edit-input" />
+                                                                        : <div className="trImg"><img src={val} /></div>
+                                                                )
+                                                                : (
+                                                                    this.item_to_edit(index)
+                                                                        ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
+                                                                        : <span>{val}</span>
+                                                                )
+
                                                         }
                                                     </div>
                                                 )}
                                                 {
-                                                    this.metaData.trActions
+                                                    this.state.metaData.trActions
                                                         ? (
                                                             <div className="td-actions dropdown-wrap">
                                                                 <button onClick={() => this.tblmenuitem_onclick(index)} className="btn-hollow btn-elipsis-v-center btn-x0"></button>
@@ -316,8 +338,8 @@ class Table extends Component {
                             <img alt="" onClick={this.next} src={AngleRightIco} />
                         </div>
                         {
-                            this.metaData.tblSummary
-                                ? <div className="table-subtitle">{this.metaData.tblSummary}</div>
+                            this.state.metaData.tblSummary
+                                ? <div className="table-subtitle">{this.state.metaData.tblSummary}</div>
                                 : null
                         }
                     </div>

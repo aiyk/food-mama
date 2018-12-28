@@ -5,3 +5,13 @@ export const GET_USERS = 'GET_USERS';
 export const USER_LOADING = 'USER_LOADING';
 export const USER_NOT_FOUND = 'USER_NOT_FOUND';
 export const CLEAR_CURRENT_USER = 'CLEAR_CURRENT_USER';
+
+export const GET_ENTERPRISE = 'GET_ENTERPRISE';
+export const GET_ENTERPRISES = 'GET_ENTERPRISES';
+export const ENTERPRISE_LOADING = 'ENTERPRISE_LOADING';
+export const ENTERPRISE_NOT_FOUND = 'ENTERPRISE_NOT_FOUND';
+
+export const GET_FOOD = 'GET_FOOD';
+export const GET_FOODS = 'GET_FOODS';
+export const FOOD_LOADING = 'FOOD_LOADING';
+export const FOOD_NOT_FOUND = 'FOOD_NOT_FOUND';
