@@ -216,6 +216,7 @@ class Table extends Component {
     }
 
     render() {
+        console.log(this.props);
         const { toggle_modal, handle_delete, handle_create } = this.props;
         return (
             <div className="custom-table-wrapper">

@@ -15,7 +15,9 @@ import {
 
     GET_MEMBERSHIP,
     GET_MEMBERSHIPS,
-    MEMBERSHIP_LOADING
+    MEMBERSHIP_LOADING,
+
+    GET_ERRORS
 } from '../actions/types';
 
 //Create role
