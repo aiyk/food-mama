@@ -17,6 +17,10 @@
     background: #fff;
     height: 45px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 10px;
+    box-sizing: border-box;
 }
 .logo-wrap {
     width: 170px;
@@ -65,4 +69,20 @@
     text-align: center;
     font-style: italic;
     color: #777;
+}
+.loggedin-user{
+    display: flex;
+    align-items: center;
+}
+.liu-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        width: 100%;
+    }
+}
+.liu-name{
+    margin-right: 10px;
 }

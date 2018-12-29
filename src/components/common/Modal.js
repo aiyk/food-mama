@@ -25,6 +25,10 @@ export default class Modal extends Component {
             this.error = `${this.params.name} is required`;
         }
     }
+    onSubmit = () => {
+        this.props.createCollection();
+        this.toggle_modal();
+    }
     render() {
         const { createCollection, collections_keys, toggle_modal } = this.props;
 
@@ -37,7 +41,7 @@ export default class Modal extends Component {
                     </div>
 
                     <div className="modal-content">
-                        <form onSubmit={createCollection}>
+                        <form onSubmit={this.onSubmit}>
                             {collections_keys().map(key =>
                                 <div className="input-group" key="key">
                                     <div className="input-group-label">{key}</div>
