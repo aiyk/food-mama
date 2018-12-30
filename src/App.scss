@@ -424,8 +424,10 @@ form{
   display: flex;
   justify-content: space-between;
   background: #f8f8f8;
-  padding: 10px 30px;
+  padding: 15px 30px;
   box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
 
 .modal-header img {
@@ -445,11 +447,10 @@ form{
   justify-content: space-between;
 }
 .modal-item-key{
-  width: 70px;
+  width: 120px;
   background: #f8f8f8;
   margin-right: 4px;
   text-align: right;
-  font-style: italic;
   padding: 5px 10px;
   color: var(--primary-button-color)
 }

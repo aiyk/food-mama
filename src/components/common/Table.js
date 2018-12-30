@@ -304,6 +304,12 @@ class Table extends Component {
                                                 {Object.values(item).map((val, key) =>
                                                     <div key={key} className="td">
                                                         {/* {console.log(Object.keys(item))} */}
+
+                                                        {
+                                                            this.state.openPopup
+                                                                ? <Modal data={item} toggle_modal={this.toggle_modalDetail} modalTitle={this.state.metaData.tblTitle} />
+                                                                : null
+                                                        }
                                                         {
                                                             this.collections_keys[key] === 'Image'
                                                                 ? (
@@ -324,11 +330,6 @@ class Table extends Component {
                                                                                                 <span className="valValue">{val[valValue]}</span>
                                                                                             </div>
                                                                                         )}
-                                                                                        {
-                                                                                            this.state.openPopup
-                                                                                                ? <Modal data={val} toggle_modal={this.toggle_modalDetail} modalTitle={this.state.metaData.tblTitle} />
-                                                                                                : null
-                                                                                        }
                                                                                     </div>
                                                                                 )
                                                                         )

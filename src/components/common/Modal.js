@@ -24,10 +24,23 @@ export default class Modal extends Component {
 
                     <div className="modal-content">
                         {Object.keys(this.state.data).map((valValue, valKey) =>
-                            <div className="flex-modal-content">
-                                <div className="modal-item-key">{valValue}</div>
-                                <div className="modal-item-val">{this.state.data[valValue]}</div>
-                            </div>
+                            typeof valValue === "object"
+                                ? (
+                                    <div key={valKey}>
+                                        {Object.keys(valValue).map((nestedValue, nestedKey) =>
+                                            <div key={nestedKey} className="flex-modal-content">
+                                                <div className="modal-item-key">{nestedValue}</div>
+                                                <div className="modal-item-val">{valValue[nestedValue]}</div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )
+                                : (
+                                    <div key={valKey} className="flex-modal-content">
+                                        <div className="modal-item-key">{valValue}</div>
+                                        <div className="modal-item-val">{this.state.data[valKey]}</div>
+                                    </div>
+                                )
                         )}
                     </div>
                 </div>
