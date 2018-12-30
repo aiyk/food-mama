@@ -22,8 +22,9 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: "Eba and Egusi Soup",
+                Food: ["Eba and Egusi Soup"],
                 Amount: "#2,500",
+                status: "pending",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -33,8 +34,9 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: "Eba and Egusi Soup",
+                Food: ["Fried Rice and Chicked", "Five Alive"],
                 Amount: "#2,500",
+                status: "pending",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -44,8 +46,9 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: "Eba and Egusi Soup",
+                Food: ["Eba and Egusi Soup", "Eva Water"],
                 Amount: "#2,500",
+                status: "dispatched",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -55,8 +58,9 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: "Eba and Egusi Soup",
+                Food: ["Eba and Egusi Soup"],
                 Amount: "#2,500",
+                status: "served",
                 Created: "2017-07-23T04:24:49-07:00"
             }
         ]

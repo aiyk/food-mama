@@ -7,12 +7,23 @@ import Table from '../common/Table'
 import CreateOrder from './CreateOrder'
 import '../users/users.scss'
 
+import EditIco from '../../assets/icons/edit.svg'
+import TrashRedIco from '../../assets/icons/trash-red.svg'
+import ElipsisHIco from '../../assets/icons/elipsis-h.svg'
+
 class Orders extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            openPopup: false
+            openPopup: false,
+
+            tableActions: [
+                {
+                    label: "Detail",
+                    iconLink: ElipsisHIco
+                }
+            ]
         }
     }
 

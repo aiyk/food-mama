@@ -326,7 +326,13 @@ class Table extends Component {
                                                                                     <div>
                                                                                         {Object.keys(val).map((valValue, valKey) =>
                                                                                             <div className="td-obj" key={valKey}>
-                                                                                                <span className="valKey">{valValue}</span>
+                                                                                                <span className="valKey">
+                                                                                                    {
+                                                                                                        Array.isArray(val)
+                                                                                                            ? (null)
+                                                                                                            : (<span>{valValue}</span>)
+                                                                                                    }
+                                                                                                </span>
                                                                                                 <span className="valValue">{val[valValue]}</span>
                                                                                             </div>
                                                                                         )}
