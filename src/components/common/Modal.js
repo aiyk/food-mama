@@ -32,7 +32,13 @@ export default class Modal extends Component {
                                             <div className="modal-obj-val">
                                                 {Object.entries(this.state.data[valValue]).map(nestedValue =>
                                                     <div key={nestedValue[0]} className="postValWrap">
-                                                        <div className="modal-item-key">{nestedValue[0]}</div>
+                                                        <div className="modal-item-key">
+                                                            {
+                                                                nestedValue[0].includes(0)
+                                                                    ? (null)
+                                                                    : (<span>{nestedValue[0]}</span>)
+                                                            }
+                                                        </div>
                                                         <div className="modal-item-val">{nestedValue[1]}</div>
                                                     </div>
                                                 )}
