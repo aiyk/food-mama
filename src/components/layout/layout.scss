@@ -79,10 +79,33 @@
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
     img{
         width: 100%;
     }
 }
 .liu-name{
     margin-right: 10px;
+    cursor: pointer;
+}
+.app-bar-rhs{
+    position: relative;
+}
+.user-menus{
+    position: absolute;
+    top: 43px;
+    right: 0px;
+    width: 200px;
+    background-color: var(--main-nav);
+    color: #fff;
+    -webkit-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    -moz-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
+    li{
+        padding: 5px 10px;
+        box-sizing: border-box;
+        width: 100%;
+        cursor: pointer;
+        border-bottom: 1px solid rgb(75, 75, 75);
+    }
 }

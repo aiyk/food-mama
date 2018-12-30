@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Modal from './Modal'
 
 import PlusICO_whiteIco from '../../assets/icons/plus-white.svg'
 import AngleLeftIco from '../../assets/icons/angle-left.svg'
@@ -298,9 +297,18 @@ class Table extends Component {
                                                                         : <div className="trImg"><img src={val} /></div>
                                                                 )
                                                                 : (
-                                                                    this.item_to_edit(index)
-                                                                        ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
-                                                                        : <span>{val}</span>
+                                                                    typeof val === "object"
+                                                                        ? (
+                                                                            this.item_to_edit(index)
+                                                                                ? <input value={Object.values(val)} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
+                                                                                : <span>{JSON.stringify(val).replace(/\"([^(\")"]+)\":/g, "$1:")}</span>
+                                                                        )
+                                                                        : (
+                                                                            this.item_to_edit(index)
+                                                                                ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
+                                                                                : <span>{val}</span>
+                                                                        )
+
                                                                 )
 
                                                         }

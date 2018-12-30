@@ -7,6 +7,9 @@ import axiosGlobals from './utils/axiosGlobals';
 import { setCurrentUser, logoutUser } from './store/actions/authActions';
 import { clearCurrentUser } from './store/actions/userActions';
 import PrivateRoute from './components/common/PrivateRoute';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { getUsers } from './store/actions/userActions'
 
 import './App.scss'
 import MainNav from './components/layout/MainNav'
@@ -45,11 +48,32 @@ if (localStorage.jwtToken) {
   }
 }
 
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggleUserMenu: this.props.user.usermenu
+    }
+  }
+  componentDidMount() {
+    this.props.getUsers();
+  }
+  close_userMenu = ($event) => {
+    if ($event.target.className === 'loggedin-user' || $event.target.className === 'liu-img' || $event.target.className === 'liu-name' || $event.target.className === 'liuImg') {
+
+    } else {
+      this.setState({
+        toggleUserMenu: false
+      })
+    }
+    console.log(this.state.toggleUserMenu, $event.target.className)
+  }
+
   render() {
     return (
       <Router>
-        <div className="App">
+        <div onClick={this.close_userMenu} className="App">
           <MainNav />
           <div className="app-content-area">
             <div className="app-content-inwrap">
@@ -80,4 +104,13 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  getUsers: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, { getUsers })(App)

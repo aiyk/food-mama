@@ -90,7 +90,8 @@ const initialState = {
       }
     ]
   },
-  loading: false
+  loading: false,
+  usermenu: false
 };
 
 export default function (state = initialState, action) {

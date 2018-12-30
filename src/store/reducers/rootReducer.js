@@ -5,6 +5,7 @@ import enterpriseReducer from "./enterpriseReducer";
 import branchReducer from "./branchReducer";
 import foodReducer from "./foodReducer";
 import settingsReducer from "./settingsReducer";
+import orderReducer from "./orderReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   food: foodReducer,
   enterprise: enterpriseReducer,
   branch: branchReducer,
-  settings: settingsReducer
+  settings: settingsReducer,
+  orders: orderReducer
 });
 
 export default rootReducer;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { createFood } from '../../store/actions/foodActions';
+import { createOrder } from '../../store/actions/orderActions';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup'
@@ -9,14 +9,14 @@ import UploadFieldGroup from '../common/UploadFieldGroup'
 import SelectListGroup from '../common/SelectListGroup'
 import TimesIco from '../../assets/icons/times.svg'
 
-class CreateFood extends Component {
+class CreateOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalTitle: "Create New Food",
+            modalTitle: "Place An Order",
 
-            food: '',
             category: '',
+            food: '',
             preorder: '',
             price: '',
             img: '',
@@ -34,15 +34,15 @@ class CreateFood extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const foodData = {
-            food: this.state.food,
+        const orderData = {
+            order: this.state.order,
             category: this.state.category,
             preorder: this.state.preorder,
             price: this.state.price,
             img: this.state.img,
         };
 
-        this.props.createFood(foodData, this.props.history);
+        this.props.createOrder(orderData, this.props.history);
     }
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -100,10 +100,10 @@ class CreateFood extends Component {
                             />
                             <UploadFieldGroup
                                 name='address'
-                                value={this.state.address}
+                                value={this.state.img}
                                 label='Address'
                                 error={null}
-                                type='text'
+                                type='file'
                                 onChange={this.handleChange}
                             />
                             <button className="btn btn-blue">Submit</button>
@@ -115,16 +115,16 @@ class CreateFood extends Component {
     }
 }
 
-CreateFood.propTypes = {
-    food: PropTypes.object.isRequired,
+CreateOrder.propTypes = {
+    order: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    food: state.food,
+    order: state.order,
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { createFood })(
-    withRouter(CreateFood)
+export default connect(mapStateToProps, { createOrder })(
+    withRouter(CreateOrder)
 );
