@@ -403,6 +403,16 @@ form{
   cursor: pointer;
   margin-left: 20px;
 }
+.td-obj{
+  border-bottom: 1px solid #aaa;
+  padding: 2px;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+}
+.valKey {
+  display: block;
+  color: var(--primary-button-color);
+}
 
 .modal-wrap {
   width: 600px;

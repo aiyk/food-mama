@@ -301,7 +301,16 @@ class Table extends Component {
                                                                         ? (
                                                                             this.item_to_edit(index)
                                                                                 ? <input value={Object.values(val)} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
-                                                                                : <span>{JSON.stringify(val).replace(/\"([^(\")"]+)\":/g, "$1:")}</span>
+                                                                                : (
+                                                                                    <div>
+                                                                                        {Object.keys(val).map((valValue, valKey) =>
+                                                                                            <div className="td-obj" key={valKey}>
+                                                                                                <span className="valKey">{valValue}</span>
+                                                                                                <span className="valValue">{val[valValue]}</span>
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </div>
+                                                                                )
                                                                         )
                                                                         : (
                                                                             this.item_to_edit(index)
