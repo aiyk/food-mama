@@ -36,18 +36,18 @@
 .nice-scroll::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background-color: var(--main-nav-bg-lite);
+  background-color: #eee
 }
 
 .nice::-webkit-scrollbar {
   width: 12px;
-  background-color: var(--main-nav-bg-lite);
+  background-color: #eee
 }
 
 .nice::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #aaa;
+  background-color: var(--main-nav-bg-lite);
 }
 
 form{
@@ -416,7 +416,6 @@ form{
 
 .modal-wrap {
   width: 600px;
-  min-height: 200px;
   background: #fff;
   box-sizing: border-box;
 }
@@ -436,9 +435,28 @@ form{
 }
 
 .modal-content {
-  padding: 20px 30px;
+  box-sizing: border-box;
+  &:first-child{
+    padding-top: 20px;
+  }
 }
-
+.flex-modal-content{
+  display: flex;
+  justify-content: space-between;
+}
+.modal-item-key{
+  width: 70px;
+  background: #f8f8f8;
+  margin-right: 4px;
+  text-align: right;
+  font-style: italic;
+  padding: 5px 10px;
+  color: var(--primary-button-color)
+}
+.modal-item-val{
+  width: 100%;
+  padding: 5px 10px;
+}
 form {
   width: 100%;
 }

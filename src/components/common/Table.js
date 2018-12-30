@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Modal from './Modal'
 
 import PlusICO_whiteIco from '../../assets/icons/plus-white.svg'
 import AngleLeftIco from '../../assets/icons/angle-left.svg'
@@ -6,6 +7,7 @@ import AngleRightIco from '../../assets/icons/angle-right.svg'
 import FilterIco from '../../assets/icons/filter.svg'
 import EditIco from '../../assets/icons/edit.svg'
 import TrashRedIco from '../../assets/icons/trash-red.svg'
+import ElipsisHIco from '../../assets/icons/elipsis-h.svg'
 
 class Table extends Component {
     constructor(props) {
@@ -111,6 +113,12 @@ class Table extends Component {
             ddmenu_tblitem: !this.state.ddmenu_tblitem
         })
     }
+    viewTr_onclick = (itemIndex) => {
+        this.setState({
+            openPopup: true
+        })
+        this.tblmenuitem_onclick('');
+    }
     editTr_onclick = (itemIndex) => {
         if (this.state.editTrIndex === itemIndex) {
             this.setState({
@@ -121,10 +129,12 @@ class Table extends Component {
                 editTrIndex: itemIndex
             });
         }
+        this.tblmenuitem_onclick('');
     }
     deleteTr_onclick = (itemIndex) => {
         let updatedCollection = [...this.state.collections];
         updatedCollection.splice(itemIndex, 1);
+        this.tblmenuitem_onclick('');
     }
     paginate = (collection, page, numItems) => {
         if (!Array.isArray(collection)) {
@@ -212,6 +222,11 @@ class Table extends Component {
         this.setState({
             [target]: e.target.value
         });
+    }
+    toggle_modalDetail = () => {
+        this.setState({
+            openPopup: !this.state.openPopup
+        })
     }
 
     render() {
@@ -309,6 +324,11 @@ class Table extends Component {
                                                                                                 <span className="valValue">{val[valValue]}</span>
                                                                                             </div>
                                                                                         )}
+                                                                                        {
+                                                                                            this.state.openPopup
+                                                                                                ? <Modal data={val} toggle_modal={this.toggle_modalDetail} modalTitle={this.state.metaData.tblTitle} />
+                                                                                                : null
+                                                                                        }
                                                                                     </div>
                                                                                 )
                                                                         )
@@ -333,6 +353,9 @@ class Table extends Component {
                                                                         this.item_to_show(index)
                                                                             ? (
                                                                                 <ul onClick={() => this.tblmenuitem_onclick('')} className="dropdown-menu">
+                                                                                    <li onClick={() => this.viewTr_onclick(index)}>
+                                                                                        <img alt="" src={ElipsisHIco} /> Details
+                                                                                    </li>
                                                                                     <li onClick={() => this.editTr_onclick(index)}>
                                                                                         <img alt="" src={EditIco} /> Edit
                                                                                     </li>
