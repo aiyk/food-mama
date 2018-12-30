@@ -290,6 +290,15 @@ class Table extends Component {
                         {this.loadedCollection().data.map((item, index) =>
                             <div key={index}>
                                 {
+                                    this.state.openPopup && index == 0
+                                        ? <Modal
+                                            data={item}
+                                            toggle_modal={this.toggle_modalDetail}
+                                            modalTitle={this.state.metaData.tblTitle}
+                                        />
+                                        : null
+                                }
+                                {
                                     item
                                         ? (
                                             <div className="tr tbody">
@@ -305,11 +314,6 @@ class Table extends Component {
                                                     <div key={key} className="td">
                                                         {/* {console.log(Object.keys(item))} */}
 
-                                                        {
-                                                            this.state.openPopup
-                                                                ? <Modal data={item} toggle_modal={this.toggle_modalDetail} modalTitle={this.state.metaData.tblTitle} />
-                                                                : null
-                                                        }
                                                         {
                                                             this.collections_keys[key] === 'Image'
                                                                 ? (

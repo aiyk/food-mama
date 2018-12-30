@@ -421,7 +421,7 @@ form{
 .modal-header {
   display: flex;
   justify-content: space-between;
-  background: #f8f8f8;
+  background: #eee;
   padding: 15px 30px;
   box-sizing: border-box;
   font-weight: bold;
@@ -446,11 +446,11 @@ form{
 }
 .modal-item-key{
   width: 120px;
-  background: #f8f8f8;
+  background: #eee;
   margin-right: 4px;
   text-align: right;
   padding: 5px 10px;
-  color: var(--primary-button-color)
+  color: var(--primary-button-color);
 }
 .modal-item-val{
   width: 100%;
