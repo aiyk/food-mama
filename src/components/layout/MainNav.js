@@ -23,7 +23,8 @@ export default function MainNav() {
                     <Link to="/settings" className="nav-link">System Settings</Link>
                 </div>
 
-                <div className="nav-footer">food mama copyright &copy; {(new Date()).getFullYear()}</div>
+                <div></div>
+                {/* <div className="nav-footer">food mama copyright &copy; {(new Date()).getFullYear()}</div> */}
             </div>
         </div>
     )
