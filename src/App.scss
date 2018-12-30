@@ -1,7 +1,7 @@
 .App {
   background: var(--bg-color);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   padding: 40px;
   box-sizing: border-box;
@@ -14,23 +14,21 @@
 .app-content-area{
   display: flex;
   align-items: center;
+  margin-top: 30px;
 }
 .app-content-inwrap{
   width: 100%;
   background: #eee;
-  height: 90%;
 }
 .content-body{
   background: #fff;
   margin: 10px 10px 10px 20px;
   width: calc(100% - 30px);
-  height: calc(100% - 65px);
   padding: 10px 10px 10px 20px;
   box-sizing: border-box;
 }
 .tbl{
   overflow-y: scroll;
-  max-height: calc(100vh - 400px);
 }
 
 .nice-scroll::-webkit-scrollbar-track {

@@ -1,13 +1,18 @@
-.main-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.nav-outer{
     width: 110%;
     -webkit-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
     -moz-box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
     box-shadow: 10px 8px 20px rgba(21, 22, 36, 0.3);
     background-color: var(--main-nav);
     z-index: 1;
+}
+.main-nav{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+    overflow: hidden;
     color: #fff;
     padding: 30px 0 10px 0;
     box-sizing: border-box;
@@ -68,7 +73,8 @@
     box-sizing: border-box;
     text-align: center;
     font-style: italic;
-    color: #777;
+    color: #fff;
+    width: 100%;
 }
 .loggedin-user{
     display: flex;
