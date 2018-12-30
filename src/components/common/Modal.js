@@ -24,23 +24,23 @@ export default class Modal extends Component {
 
                     <div className="modal-content">
                         {Object.keys(this.state.data).map((valValue, valKey) =>
-                            typeof valValue === "object"
-                                ? (
-                                    <div key={valKey}>
-                                        {Object.keys(valValue).map((nestedValue, nestedKey) =>
-                                            <div key={nestedKey} className="flex-modal-content">
-                                                <div className="modal-item-key">{nestedValue}</div>
-                                                <div className="modal-item-val">{valValue[nestedValue]}</div>
+                            <div key={valKey} className="flex-modal-content">
+                                <div className="modal-item-key">{valValue}</div>
+                                {
+                                    typeof this.state.data[valValue] === "object"
+                                        ? (
+                                            <div className="modal-obj-val">
+                                                {Object.entries(this.state.data[valValue]).map(nestedValue =>
+                                                    <div key={nestedValue[0]} className="postValWrap">
+                                                        <div className="modal-item-key">{nestedValue[0]}</div>
+                                                        <div className="modal-item-val">{nestedValue[1]}</div>
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </div>
-                                )
-                                : (
-                                    <div key={valKey} className="flex-modal-content">
-                                        <div className="modal-item-key">{valValue}</div>
-                                        <div className="modal-item-val">{this.state.data[valKey]}</div>
-                                    </div>
-                                )
+                                        )
+                                        : (<div className="modal-item-val">{this.state.data[valValue]}</div>)
+                                }
+                            </div>
                         )}
                     </div>
                 </div>

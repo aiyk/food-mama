@@ -458,6 +458,19 @@ form{
   width: 100%;
   padding: 5px 10px;
 }
+.modal-obj-val{
+  width: 100%;
+  padding: 10px 0;
+  background: #f8f8f8;
+  .postValWrap{
+    display: flex;
+    border-bottom: 1px solid #eee;
+  }
+  .modal-item-key{
+    text-align: left !important;
+    background: transparent !important;
+  }
+}
 form {
   width: 100%;
 }
