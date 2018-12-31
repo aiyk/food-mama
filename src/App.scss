@@ -19,11 +19,13 @@
 .app-content-inwrap{
   width: 100%;
   background: #eee;
+  min-height: 80vh;
 }
 .content-body{
   background: #fff;
   margin: 10px 10px 10px 20px;
   width: calc(100% - 30px);
+  min-height: calc(80vh - 65px);
   padding: 10px 10px 10px 20px;
   box-sizing: border-box;
 }

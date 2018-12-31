@@ -26,6 +26,11 @@ class Orders extends Component {
             openPopup: !this.state.openPopup
         })
     }
+    serve_order = (id) => {
+        this.setState({
+            openPopup: !this.state.openPopup
+        })
+    }
     render() {
 
         return (

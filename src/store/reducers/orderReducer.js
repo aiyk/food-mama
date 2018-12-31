@@ -21,6 +21,11 @@ const initialState = {
                 icon: "food.svg"
             },
             {
+                label: "Recieve Cash",
+                colorClass: "btn-outline-blue",
+                icon: "credit-card.svg"
+            },
+            {
                 label: "Cancel Order",
                 colorClass: "btn-outline-red",
                 icon: "times.svg"
