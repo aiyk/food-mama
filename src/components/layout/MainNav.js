@@ -15,7 +15,6 @@ export default function MainNav() {
                     <Link to="/dashboard" className="nav-link">Dashboard</Link>
                     <Link to="/orders" className="nav-link">Orders</Link>
                     <Link to="/dispatch" className="nav-link">Dispatch</Link>
-                    <Link to="/riders" className="nav-link">Riders</Link>
                     <Link to="/users" className="nav-link">Users</Link>
                     <Link to="/enterprises" className="nav-link">Enterprises</Link>
                     <Link to="/foods" className="nav-link">Foods</Link>
