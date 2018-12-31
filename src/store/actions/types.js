@@ -45,3 +45,8 @@ export const GET_ORDER = 'GET_ORDER';
 export const GET_ORDERS = 'GET_ORDERS';
 export const ORDER_LOADING = 'ORDER_LOADING';
 export const ORDER_NOT_FOUND = 'ORDER_NOT_FOUND';
+
+export const GET_DISPATCH = 'GET_DISPATCH';
+export const GET_DISPATCHS = 'GET_DISPATCHS';
+export const DISPATCH_LOADING = 'DISPATCH_LOADING';
+export const DISPATCH_NOT_FOUND = 'DISPATCH_NOT_FOUND';

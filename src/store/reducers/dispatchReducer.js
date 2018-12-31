@@ -1,37 +1,27 @@
 import {
-    GET_ORDER,
-    GET_ORDERS,
-    ORDER_LOADING
+    GET_DISPATCH,
+    GET_DISPATCHS,
+    DISPATCH_LOADING
 } from '../actions/types';
 
 const initialState = {
-    orders: {
+    dispatchs: {
         metaData: {
-            tblTitle: "Order Management",
-            tblSubtitle: "Food Orders Management Platform",
+            tblTitle: "Dispatch Management",
+            tblSubtitle: "Food Dispatch Management Platform",
             trActions: true,
             trCheckbox: false,
-            tblSummary: "a list of all the orders placed on this platform"
+            tblSummary: "a list of all dispatch activities"
         },
 
         actions: [
             {
-                label: "Food Served",
+                label: "Delivered",
                 colorClass: "btn-outline-green",
-                icon: "food.svg"
+                icon: "check.svg"
             },
             {
-                label: "Recieve Cash",
-                colorClass: "btn-outline-blue",
-                icon: "credit-card.svg"
-            },
-            {
-                label: "Dispatch",
-                colorClass: "btn-outline-grey",
-                icon: "rider.svg"
-            },
-            {
-                label: "Cancel Order",
+                label: "Rejected",
                 colorClass: "btn-outline-red",
                 icon: "times.svg"
             }
@@ -45,9 +35,16 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: ["Eba and Egusi Soup"],
-                Amount: "#2,500",
-                status: "pending",
+                Rider: {
+                    Rider: "John Doe",
+                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                    Image: ""
+                },
+                Order: {
+                    Food: ["Eba and Egusi Soup"],
+                    Amount: "#2,500",
+                },
+                status: "in-transit",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -57,9 +54,16 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: ["Fried Rice and Chicked", "Five Alive"],
-                Amount: "#2,500",
-                status: "pending",
+                Rider: {
+                    Rider: "John Doe",
+                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                    Image: ""
+                },
+                Order: {
+                    Food: ["Eba and Egusi Soup"],
+                    Amount: "#2,500",
+                },
+                status: "in-transit",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -69,9 +73,16 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: ["Eba and Egusi Soup", "Eva Water"],
-                Amount: "#2,500",
-                status: "dispatched",
+                Rider: {
+                    Rider: "John Doe",
+                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                    Image: ""
+                },
+                Order: {
+                    Food: ["Eba and Egusi Soup"],
+                    Amount: "#2,500",
+                },
+                status: "in-transit",
                 Created: "2017-07-23T04:24:49-07:00"
             },
             {
@@ -81,9 +92,16 @@ const initialState = {
                     ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
                     Image: ""
                 },
-                Food: ["Eba and Egusi Soup"],
-                Amount: "#2,500",
-                status: "served",
+                Rider: {
+                    Rider: "John Doe",
+                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                    Image: ""
+                },
+                Order: {
+                    Food: ["Eba and Egusi Soup"],
+                    Amount: "#2,500",
+                },
+                status: "in-transit",
                 Created: "2017-07-23T04:24:49-07:00"
             }
         ]
@@ -93,21 +111,21 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case ORDER_LOADING:
+        case DISPATCH_LOADING:
             return {
                 ...state,
                 loading: true
             };
-        case GET_ORDER:
+        case GET_DISPATCH:
             return {
                 ...state,
-                order: action.payload,
+                dispatch: action.payload,
                 loading: false
             };
-        case GET_ORDERS:
+        case GET_DISPATCHS:
             return {
                 ...state,
-                orders: action.payload,
+                dispatchs: action.payload,
                 loading: false
             };
         default:

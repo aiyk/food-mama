@@ -6,6 +6,7 @@ import branchReducer from "./branchReducer";
 import foodReducer from "./foodReducer";
 import settingsReducer from "./settingsReducer";
 import orderReducer from "./orderReducer";
+import dispatchReducer from "./dispatchReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   enterprise: enterpriseReducer,
   branch: branchReducer,
   settings: settingsReducer,
-  orders: orderReducer
+  orders: orderReducer,
+  dispatchs: dispatchReducer
 });
 
 export default rootReducer;
