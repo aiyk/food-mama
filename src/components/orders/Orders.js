@@ -12,6 +12,8 @@ class Orders extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            orders: this.props.order.orders,
+            loading: this.props.order.loading,
             openPopup: false
         }
     }
@@ -25,13 +27,12 @@ class Orders extends Component {
         })
     }
     render() {
-        const { orders, loading } = this.props.order;
 
         return (
             <div>
                 <Table
-                    payload={orders}
-                    loading={loading}
+                    payload={this.state.orders}
+                    loading={this.state.loading}
                     toggle_modal={this.toggle_modal}
                     handle_create={this.props.createOrder}
                     handle_delete={this.props.deleteOrder}
