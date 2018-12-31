@@ -8,6 +8,7 @@ export default class Modal extends Component {
         this.state = {
             data: this.props.data,
             openPopup: this.props.openPopup,
+            actions: this.props.actions,
             modalTitle: this.props.modalTitle
         }
     }
@@ -23,6 +24,10 @@ export default class Modal extends Component {
                     </div>
 
                     <div className="modal-content">
+                        <div className="flex-modal-content">
+                            <div className="modal-item-key-fake"></div>
+                            <div className="modal-item-val-fake"></div>
+                        </div>
                         {Object.keys(this.state.data).map((valValue, valKey) =>
                             <div key={valKey} className="flex-modal-content">
                                 <div className="modal-item-key">{valValue}</div>
@@ -48,6 +53,10 @@ export default class Modal extends Component {
                                 }
                             </div>
                         )}
+                        <div className="flex-modal-content">
+                            <div className="modal-item-key-fake"></div>
+                            <div className="modal-item-val-fake"></div>
+                        </div>
                     </div>
                 </div>
             </div>

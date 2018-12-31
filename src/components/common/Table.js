@@ -15,6 +15,7 @@ class Table extends Component {
         this.state = {
             metaData: this.props.payload.metaData,
             collections: this.props.payload.collections,
+            actions: this.props.payload.actions,
 
             sortState: true,
             ddmenu_tblmenu: false,
@@ -230,7 +231,7 @@ class Table extends Component {
     }
 
     render() {
-        const { toggle_modal, handle_delete, handle_create } = this.props;
+        const { toggle_modal } = this.props;
         return (
             <div className="custom-table-wrapper">
                 <div id="data-table" className="table-wrap">
@@ -295,6 +296,7 @@ class Table extends Component {
                                             data={item}
                                             toggle_modal={this.toggle_modalDetail}
                                             modalTitle={this.state.metaData.tblTitle}
+                                            actions={this.state.actions}
                                         />
                                         : null
                                 }
