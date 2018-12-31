@@ -148,6 +148,63 @@ form{
   border: 0.1rem solid #eee;
   background-color: #fff;
 }
+.btn-outline-grey{
+  background-color: transparent;
+  border: 0.1rem solid #aaa;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: 0;
+  &:hover{
+    border: 0.1rem solid #333;
+    background-color: #f8f8f8;
+  }
+}
+.btn-outline-blue{
+  background-color: transparent;
+  border: 0.1rem solid var(--btn-blue);
+  color: var(--btn-blue);
+  cursor: pointer;
+  outline: 0;
+  &:hover{
+    border: 0.1rem solid var(--btn-blue-active);
+    color: var(--btn-blue-active);
+    background-color: #f8f8f8;
+  }
+}
+.btn-outline-orange{
+  background-color: transparent;
+  border: 0.1rem solid var(--section-title);
+  color: var(--section-title);
+  cursor: pointer;
+  outline: 0;
+  &:hover{
+    border: 0.1rem solid var(--btn-blue-active);
+    color: var(--btn-blue-active);
+    background-color: #f8f8f8;
+  }
+}
+.btn-outline-red{
+  background-color: transparent;
+  border: 0.1rem solid var(--error);
+  color: var(--error);
+  cursor: pointer;
+  outline: 0;
+  &:hover{
+    border: 0.1rem solid var(--red-button-pressed);
+    color: var(--red-button-pressed);
+    background-color: #f8f8f8;
+  }
+}
+.btn-outline-green{
+  background-color: transparent;
+  border: 0.1rem solid var(--green-button-pressed-bg);
+  color: var(--green-button-pressed-bg);
+  cursor: pointer;
+  outline: 0;
+  &:hover{
+    background-color: #f8f8f8;
+  }
+}
 
 .btn-x0 {
   width: 4rem;
@@ -476,6 +533,10 @@ form{
     text-align: left !important;
     background: transparent !important;
   }
+}
+.modal-actions{
+  display: flex;
+  justify-content: flex-end;
 }
 form {
   width: 100%;

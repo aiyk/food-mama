@@ -40,7 +40,9 @@ class Table extends Component {
             },
             search: "",
             searchKey: "",
-            openPopup: false
+
+            openPopup: false,
+            itemClicked: null
         };
     }
 
@@ -116,7 +118,8 @@ class Table extends Component {
     }
     viewTr_onclick = (itemIndex) => {
         this.setState({
-            openPopup: true
+            openPopup: true,
+            itemClicked: itemIndex
         })
         this.tblmenuitem_onclick('');
     }
@@ -291,7 +294,7 @@ class Table extends Component {
                         {this.loadedCollection().data.map((item, index) =>
                             <div key={index}>
                                 {
-                                    this.state.openPopup && index == 0
+                                    this.state.openPopup && this.state.itemClicked === index
                                         ? <Modal
                                             data={item}
                                             toggle_modal={this.toggle_modalDetail}

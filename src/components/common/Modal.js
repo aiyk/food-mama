@@ -29,27 +29,45 @@ export default class Modal extends Component {
                             <div className="modal-item-val-fake"></div>
                         </div>
                         {Object.keys(this.state.data).map((valValue, valKey) =>
-                            <div key={valKey} className="flex-modal-content">
-                                <div className="modal-item-key">{valValue}</div>
-                                {
-                                    typeof this.state.data[valValue] === "object"
-                                        ? (
-                                            <div className="modal-obj-val">
-                                                {Object.entries(this.state.data[valValue]).map(nestedValue =>
-                                                    <div key={nestedValue[0]} className="postValWrap">
-                                                        <div className="modal-item-key">
-                                                            {
-                                                                nestedValue[0].includes(0)
-                                                                    ? (null)
-                                                                    : (<span>{nestedValue[0]}</span>)
-                                                            }
+                            <div key={valKey}>
+                                <div className="flex-modal-content">
+                                    <div className="modal-item-key">{valValue}</div>
+                                    {
+                                        typeof this.state.data[valValue] === "object"
+                                            ? (
+                                                <div className="modal-obj-val">
+                                                    {Object.entries(this.state.data[valValue]).map(nestedValue =>
+                                                        <div key={nestedValue[0]} className="postValWrap">
+                                                            <div className="modal-item-key">
+                                                                {
+                                                                    nestedValue[0].includes(0)
+                                                                        ? (null)
+                                                                        : (<span>{nestedValue[0]}</span>)
+                                                                }
+                                                            </div>
+                                                            <div className="modal-item-val">{nestedValue[1]}</div>
                                                         </div>
-                                                        <div className="modal-item-val">{nestedValue[1]}</div>
-                                                    </div>
-                                                )}
+                                                    )}
+                                                </div>
+                                            )
+                                            : (<div className="modal-item-val">{this.state.data[valValue]}</div>)
+                                    }
+                                </div>
+                                {
+                                    [this.state.data[valValue]].includes('pending')
+                                        ? (
+                                            <div className="flex-modal-content">
+                                                <div className="modal-item-key-fake"></div>
+                                                <div className="modal-item-val-fake modal-actions">
+                                                    {Object.values(this.state.actions).map((action, index) =>
+                                                        <button className={`btn ${action.colorClass}`} key={index}>
+                                                            <img alt="" src={`../../assets/icons/${action.icon}`} /> {action.label}
+                                                        </button>
+                                                    )}
+                                                </div>
                                             </div>
                                         )
-                                        : (<div className="modal-item-val">{this.state.data[valValue]}</div>)
+                                        : null
                                 }
                             </div>
                         )}

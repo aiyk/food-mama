@@ -16,13 +16,13 @@ const initialState = {
 
         actions: [
             {
-                label: "Serve",
-                colorClass: "btn-blue",
+                label: "Food Served",
+                colorClass: "btn-outline-green",
                 icon: "food.svg"
             },
             {
                 label: "Cancel Order",
-                colorClass: "btn-blue",
+                colorClass: "btn-outline-red",
                 icon: "times.svg"
             }
         ],
