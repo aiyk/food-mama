@@ -67,6 +67,14 @@ form{
   }
 }
 
+.form-group {
+  width: 100%;
+  input{
+    width: 100%;
+    padding: 3px;
+  }
+}
+
 .tab-menu{
   width: 100%;
   display: flex;
