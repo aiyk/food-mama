@@ -27,17 +27,21 @@ class Orders extends Component {
         })
     }
     render() {
+        const { metaData, actions, collections, loading } = this.props.order;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table
-                    payload={this.state.orders}
-                    loading={this.state.loading}
-                    toggle_modal={this.toggle_modal}
-                    handle_create={this.props.createOrder}
-                    handle_delete={this.props.deleteOrder}
-                    actions={this.props.actions}
-                />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateOrder toggle_modal={this.toggle_modal} />)

@@ -25,11 +25,21 @@ class WalletSettings extends Component {
         })
     }
     render() {
-        const { wallet, loading } = this.props;
+        const { metaData, actions, collections, loading } = this.props.wallet;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={wallet} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateWalletType toggle_modal={this.toggle_modal} />)
@@ -47,7 +57,7 @@ WalletSettings.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    wallet: state.settings.settings.walletTypes
+    wallet: state.settings.walletTypes
 });
 
 export default connect(mapStateToProps, { getWallets })(WalletSettings)

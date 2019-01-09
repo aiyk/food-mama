@@ -25,11 +25,21 @@ class Enterprises extends Component {
         })
     }
     render() {
-        const { enterprises, loading } = this.props.enterprise;
+        const { metaData, actions, collections, loading } = this.props.enterprise;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={enterprises} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateEnterprise toggle_modal={this.toggle_modal} />)

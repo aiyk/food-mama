@@ -25,17 +25,21 @@ class Foods extends Component {
         })
     }
     render() {
-        const { foods, loading } = this.props.food;
+        const { metaData, actions, collections, loading } = this.props.food;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table
-                    payload={foods}
-                    loading={loading}
-                    toggle_modal={this.toggle_modal}
-                    handle_create={this.props.createFood}
-                    handle_delete={this.props.deleteFood}
-                />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateFood toggle_modal={this.toggle_modal} />)

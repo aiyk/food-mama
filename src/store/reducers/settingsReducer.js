@@ -17,139 +17,137 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    settings: {
 
-        roles: {
-            metaData: {
-                tblTitle: "User Roles",
-                tblSubtitle: "User Roles Management Platform",
-                trActions: true,
-                trCheckbox: false,
-                tblSummary: "a list of all roles currently available on this platform"
-            },
-
-            collections: [
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    role: "Global Admin",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    role: "Branch Admin",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    role: "Point of Sale",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    role: "Rider",
-                    Created: "2017-07-23T04:24:49-07:00"
-                }
-            ]
+    roles: {
+        metaData: {
+            tblTitle: "User Roles",
+            tblSubtitle: "User Roles Management Platform",
+            trActions: true,
+            trCheckbox: false,
+            tblSummary: "a list of all roles currently available on this platform"
         },
 
-        walletTypes: {
-            metaData: {
-                tblTitle: "Wallet Types",
-                tblSubtitle: "Wallet Types Management Platform",
-                trActions: true,
-                trCheckbox: false,
-                tblSummary: "a list of all wallet types currently available on this platform"
+        collections: [
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                role: "Global Admin",
+                Created: "2017-07-23T04:24:49-07:00"
             },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                role: "Branch Admin",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                role: "Point of Sale",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                role: "Rider",
+                Created: "2017-07-23T04:24:49-07:00"
+            }
+        ]
+    },
 
-            collections: [
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    walletType: "Bronze",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    walletType: "Ruby",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    walletType: "Gold",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    walletType: "Diamond",
-                    Created: "2017-07-23T04:24:49-07:00"
-                }
-            ]
+    walletTypes: {
+        metaData: {
+            tblTitle: "Wallet Types",
+            tblSubtitle: "Wallet Types Management Platform",
+            trActions: true,
+            trCheckbox: false,
+            tblSummary: "a list of all wallet types currently available on this platform"
         },
 
-        foodCategory: {
-            metaData: {
-                tblTitle: "Food Categories",
-                tblSubtitle: "Food Categories Management Platform",
-                trActions: true,
-                trCheckbox: false,
-                tblSummary: "a list of all food categories currently available on this platform"
+        collections: [
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                walletType: "Bronze",
+                Created: "2017-07-23T04:24:49-07:00"
             },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                walletType: "Ruby",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                walletType: "Gold",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                walletType: "Diamond",
+                Created: "2017-07-23T04:24:49-07:00"
+            }
+        ]
+    },
 
-            collections: [
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    foodCategory: "Continental Dishes",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    foodCategory: "African Dishes",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    foodCategory: "Pastries",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    foodCategory: "Breverages",
-                    Created: "2017-07-23T04:24:49-07:00"
-                }
-            ]
+    foodCategory: {
+        metaData: {
+            tblTitle: "Food Categories",
+            tblSubtitle: "Food Categories Management Platform",
+            trActions: true,
+            trCheckbox: false,
+            tblSummary: "a list of all food categories currently available on this platform"
         },
 
-        membershipPlan: {
-            metaData: {
-                tblTitle: "Membership Plan",
-                tblSubtitle: "Membership Plan Management Platform",
-                trActions: true,
-                trCheckbox: false,
-                tblSummary: "a list of all membership plan currently available on this platform"
+        collections: [
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                foodCategory: "Continental Dishes",
+                Created: "2017-07-23T04:24:49-07:00"
             },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                foodCategory: "African Dishes",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                foodCategory: "Pastries",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                foodCategory: "Breverages",
+                Created: "2017-07-23T04:24:49-07:00"
+            }
+        ]
+    },
 
-            collections: [
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    membershipPlan: "Bronze",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    membershipPlan: "Ruby",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    membershipPlan: "Gold",
-                    Created: "2017-07-23T04:24:49-07:00"
-                },
-                {
-                    ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
-                    membershipPlan: "Diamond",
-                    Created: "2017-07-23T04:24:49-07:00"
-                }
-            ]
+    membershipPlan: {
+        metaData: {
+            tblTitle: "Membership Plan",
+            tblSubtitle: "Membership Plan Management Platform",
+            trActions: true,
+            trCheckbox: false,
+            tblSummary: "a list of all membership plan currently available on this platform"
         },
+
+        collections: [
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                membershipPlan: "Bronze",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                membershipPlan: "Ruby",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                membershipPlan: "Gold",
+                Created: "2017-07-23T04:24:49-07:00"
+            },
+            {
+                ID: "3471DA17-401F-9633-BF81-4CADA6FD5C79",
+                membershipPlan: "Diamond",
+                Created: "2017-07-23T04:24:49-07:00"
+            }
+        ]
     },
     loading: false
 };
@@ -167,12 +165,12 @@ export default function (state = initialState, action) {
                 role: action.payload,
                 loading: false
             };
-        case GET_ROLES:
-            return {
-                ...state,
-                roles: action.payload,
-                loading: false
-            };
+        // case GET_ROLES:
+        //     return {
+        //         ...state,
+        //         roles: action.payload,
+        //         loading: false
+        //     };
 
         case WALLET_LOADING:
             return {

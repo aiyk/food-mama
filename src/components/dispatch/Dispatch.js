@@ -27,17 +27,23 @@ class Dispatchs extends Component {
         })
     }
     render() {
+        const { metaData, actions, collections, loading } = this.props.dispatch;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            handle_create={this.props.createDispatch}
+            handle_delete={this.props.deleteDispatch}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table
-                    payload={this.state.dispatchs}
-                    loading={this.state.loading}
-                    toggle_modal={this.toggle_modal}
-                    handle_create={this.props.createDispatch}
-                    handle_delete={this.props.deleteDispatch}
-                    actions={this.props.actions}
-                />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateDispatch toggle_modal={this.toggle_modal} />)

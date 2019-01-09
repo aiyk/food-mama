@@ -69,7 +69,7 @@ CreateFoodCategory.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    foodCategory: state.settings.settings.foodCategory,
+    foodCategory: state.settings.foodCategory,
     errors: state.errors
 });
 

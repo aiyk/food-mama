@@ -69,7 +69,7 @@ CreateRole.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    role: state.settings.settings.roles,
+    role: state.settings.roles,
     errors: state.errors
 });
 

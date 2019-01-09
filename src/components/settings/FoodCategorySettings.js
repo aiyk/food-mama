@@ -25,11 +25,21 @@ class FoodCategorySettings extends Component {
         })
     }
     render() {
-        const { foodCategory, loading } = this.props;
+        const { metaData, actions, collections, loading } = this.props.foodCategory;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={foodCategory} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateFoodCategory toggle_modal={this.toggle_modal} />)
@@ -47,7 +57,7 @@ FoodCategorySettings.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    foodCategory: state.settings.settings.foodCategory
+    foodCategory: state.settings.foodCategory
 });
 
 export default connect(mapStateToProps, { getFoodCategories })(FoodCategorySettings)

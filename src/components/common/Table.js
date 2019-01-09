@@ -13,9 +13,9 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            metaData: this.props.payload.metaData,
-            collections: this.props.payload.collections,
-            actions: this.props.payload.actions,
+            metaData: this.props.metaData,
+            collections: this.props.dataset,
+            actions: this.props.actions,
 
             sortState: true,
             ddmenu_tblmenu: false,
@@ -206,6 +206,7 @@ class Table extends Component {
             let obj = Object.values(this.state.collections);
             return Object.keys(obj[0]) || [];
         }
+        return null;
     }
     handleSearchKey = (event) => {
         this.setState({
@@ -236,181 +237,186 @@ class Table extends Component {
     render() {
         const { toggle_modal } = this.props;
         return (
-            <div className="custom-table-wrapper">
-                <div id="data-table" className="table-wrap">
-                    <div className="pre-table">
-                        <div className="table-titles">
-                            <div className="table-title">{this.state.metaData.tblTitle}</div>
-                            <div className="table-subtitle">{this.state.metaData.tblSubtitle}</div>
-                        </div>
-                        <div className="table-ctas">
-                            <button onClick={toggle_modal} className="btn btn-blue">
-                                <img alt="" src={PlusICO_whiteIco} /> Add New
+            this.state.collections.length > 0
+                ? (
+                    <div className="custom-table-wrapper">
+                        <div id="data-table" className="table-wrap">
+                            <div className="pre-table">
+                                <div className="table-titles">
+                                    <div className="table-title">{this.state.metaData.tblTitle}</div>
+                                    <div className="table-subtitle">{this.state.metaData.tblSubtitle}</div>
+                                </div>
+                                <div className="table-ctas">
+                                    <button onClick={toggle_modal} className="btn btn-blue">
+                                        <img alt="" src={PlusICO_whiteIco} /> Add New
                             </button>
-                        </div>
-                    </div>
-
-                    <div className="tbl-controls">
-                        <div className="search-wrap">
-                            <select onChange={this.handleSearchKey}>
-                                {this.collections_keys().map(item => <option key={item} value={item} >{item}</option>)}
-                            </select>
-                            <input onChange={this.handleSearchCriteria} type="search" placeholder="search..." />
-                        </div>
-
-                        <div className="tbl-pagination">
-                            <span>
-                                showing page {this.state.pagination_data.currentPage} out of {this.state.pagination_data.totalPages} pages
-                            </span>
-                            <img alt="" onClick={this.prev} src={AngleLeftIco} />
-                            <img alt="" onClick={this.next} src={AngleRightIco} />
-                        </div>
-
-                    </div>
-
-                    <div className="tbl nice nice-scroll">
-                        <div>
-                            <div className="tr thead">
-                                {
-                                    this.state.metaData.trCheckbox
-                                        ? <div className="td-actions"></div>
-                                        : null
-                                }
-
-                                {this.collections_keys().map(th =>
-                                    <div key={th} onClick={() => this.sortCollections([th])} className="th">
-                                        <span>{th}</span>
-                                        <img alt="" src={FilterIco} />
-                                    </div>
-                                )}
-
-                                {
-                                    this.state.metaData.trActions
-                                        ? <div className="td-actions"></div>
-                                        : null
-                                }
+                                </div>
                             </div>
-                        </div>
-                        {this.loadedCollection().data.map((item, index) =>
-                            <div key={index}>
-                                {
-                                    this.state.openPopup && this.state.itemClicked === index
-                                        ? <Modal
-                                            data={item}
-                                            toggle_modal={this.toggle_modalDetail}
-                                            modalTitle={this.state.metaData.tblTitle}
-                                            actions={this.state.actions}
-                                        />
-                                        : null
-                                }
-                                {
-                                    item
-                                        ? (
-                                            <div className="tr tbody">
-                                                {
-                                                    this.state.metaData.trCheckbox
-                                                        ? (
-                                                            <div className="td-actions">
-                                                                <input type="checkbox" />
-                                                            </div>
-                                                        ) : (null)
-                                                }
-                                                {Object.values(item).map((val, key) =>
-                                                    <div key={key} className="td">
-                                                        {/* {console.log(Object.keys(item))} */}
 
+                            <div className="tbl-controls">
+                                <div className="search-wrap">
+                                    <select onChange={this.handleSearchKey}>
+                                        {this.collections_keys().map(item => <option key={item} value={item} >{item}</option>)}
+                                    </select>
+                                    <input onChange={this.handleSearchCriteria} type="search" placeholder="search..." />
+                                </div>
+
+                                <div className="tbl-pagination">
+                                    <span>
+                                        showing page {this.state.pagination_data.currentPage} out of {this.state.pagination_data.totalPages} pages
+                                    </span>
+                                    <img alt="" onClick={this.prev} src={AngleLeftIco} />
+                                    <img alt="" onClick={this.next} src={AngleRightIco} />
+                                </div>
+
+                            </div>
+
+                            <div className="tbl nice nice-scroll">
+                                <div>
+                                    <div className="tr thead">
+                                        {
+                                            this.state.metaData.trCheckbox
+                                                ? <div className="td-actions"></div>
+                                                : null
+                                        }
+
+                                        {this.collections_keys().map(th =>
+                                            <div key={th} onClick={() => this.sortCollections([th])} className="th">
+                                                <span>{th}</span>
+                                                <img alt="" src={FilterIco} />
+                                            </div>
+                                        )}
+
+                                        {
+                                            this.state.metaData.trActions
+                                                ? <div className="td-actions"></div>
+                                                : null
+                                        }
+                                    </div>
+                                </div>
+                                {this.loadedCollection().data.map((item, index) =>
+                                    <div key={index}>
+                                        {
+                                            this.state.openPopup && this.state.itemClicked === index
+                                                ? <Modal
+                                                    data={item}
+                                                    toggle_modal={this.toggle_modalDetail}
+                                                    modalTitle={this.state.metaData.tblTitle}
+                                                    actions={this.state.actions}
+                                                />
+                                                : null
+                                        }
+                                        {
+                                            item
+                                                ? (
+                                                    <div className="tr tbody">
                                                         {
-                                                            this.collections_keys[key] === 'Image'
+                                                            this.state.metaData.trCheckbox
                                                                 ? (
-                                                                    this.item_to_edit(index)
-                                                                        ? <input type="file" className="td-edit-input" />
-                                                                        : <div className="trImg"><img src={val} /></div>
-                                                                )
-                                                                : (
-                                                                    typeof val === "object"
+                                                                    <div className="td-actions">
+                                                                        <input type="checkbox" />
+                                                                    </div>
+                                                                ) : (null)
+                                                        }
+                                                        {Object.values(item).map((val, key) =>
+                                                            <div key={key} className="td">
+                                                                {/* {console.log(Object.keys(item))} */}
+
+                                                                {
+                                                                    this.collections_keys[key] === 'Image'
                                                                         ? (
                                                                             this.item_to_edit(index)
-                                                                                ? <input value={Object.values(val)} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
-                                                                                : (
-                                                                                    <div>
-                                                                                        {Object.keys(val).map((valValue, valKey) =>
-                                                                                            <div className="td-obj" key={valKey}>
-                                                                                                <span className="valKey">
-                                                                                                    {
-                                                                                                        Array.isArray(val)
-                                                                                                            ? (null)
-                                                                                                            : (<span>{valValue}</span>)
-                                                                                                    }
-                                                                                                </span>
-                                                                                                <span className="valValue">{val[valValue]}</span>
-                                                                                            </div>
-                                                                                        )}
-                                                                                    </div>
-                                                                                )
+                                                                                ? <input type="file" className="td-edit-input" />
+                                                                                : <div className="trImg"><img src={val} /></div>
                                                                         )
                                                                         : (
-                                                                            this.item_to_edit(index)
-                                                                                ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
-                                                                                : <span>{val}</span>
+                                                                            typeof val === "object"
+                                                                                ? (
+                                                                                    this.item_to_edit(index)
+                                                                                        ? <input value={Object.values(val)} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
+                                                                                        : (
+                                                                                            <div>
+                                                                                                {Object.keys(val).map((valValue, valKey) =>
+                                                                                                    <div className="td-obj" key={valKey}>
+                                                                                                        <span className="valKey">
+                                                                                                            {
+                                                                                                                Array.isArray(val)
+                                                                                                                    ? (null)
+                                                                                                                    : (<span>{valValue}</span>)
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                        <span className="valValue">{val[valValue]}</span>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                            </div>
+                                                                                        )
+                                                                                )
+                                                                                : (
+                                                                                    this.item_to_edit(index)
+                                                                                        ? <input value={val} onChange={() => this.updateCollections(key, item.ID)} type="text" className="td-edit-input" />
+                                                                                        : <span>{val}</span>
+                                                                                )
+
                                                                         )
 
+                                                                }
+                                                            </div>
+                                                        )}
+                                                        {
+                                                            this.state.metaData.trActions
+                                                                ? (
+                                                                    <div className="td-actions dropdown-wrap">
+                                                                        <button onClick={() => this.tblmenuitem_onclick(index)} className="btn-hollow btn-elipsis-v-center btn-x0"></button>
+                                                                        <div className="dropdown-wrap">
+                                                                            {
+                                                                                this.item_to_show(index)
+                                                                                    ? (
+                                                                                        <ul onClick={() => this.tblmenuitem_onclick('')} className="dropdown-menu">
+                                                                                            <li onClick={() => this.viewTr_onclick(index)}>
+                                                                                                <img alt="" src={ElipsisHIco} /> Details
+                                                                                    </li>
+                                                                                            <li onClick={() => this.editTr_onclick(index)}>
+                                                                                                <img alt="" src={EditIco} /> Edit
+                                                                                    </li>
+                                                                                            <li onClick={() => this.deleteCollection([item.ID])}>
+                                                                                                <img alt="" src={TrashRedIco} /> Delete
+                                                                                    </li>
+                                                                                        </ul>
+                                                                                    )
+                                                                                    : (null)
+                                                                            }
+                                                                        </div>
+                                                                    </div>
                                                                 )
-
+                                                                : (null)
                                                         }
                                                     </div>
-                                                )}
-                                                {
-                                                    this.state.metaData.trActions
-                                                        ? (
-                                                            <div className="td-actions dropdown-wrap">
-                                                                <button onClick={() => this.tblmenuitem_onclick(index)} className="btn-hollow btn-elipsis-v-center btn-x0"></button>
-                                                                <div className="dropdown-wrap">
-                                                                    {
-                                                                        this.item_to_show(index)
-                                                                            ? (
-                                                                                <ul onClick={() => this.tblmenuitem_onclick('')} className="dropdown-menu">
-                                                                                    <li onClick={() => this.viewTr_onclick(index)}>
-                                                                                        <img alt="" src={ElipsisHIco} /> Details
-                                                                                    </li>
-                                                                                    <li onClick={() => this.editTr_onclick(index)}>
-                                                                                        <img alt="" src={EditIco} /> Edit
-                                                                                    </li>
-                                                                                    <li onClick={() => this.deleteCollection([item.ID])}>
-                                                                                        <img alt="" src={TrashRedIco} /> Delete
-                                                                                    </li>
-                                                                                </ul>
-                                                                            )
-                                                                            : (null)
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                        )
-                                                        : (null)
-                                                }
-                                            </div>
-                                        ) : (null)
-                                }
+                                                ) : (null)
+                                        }
 
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </div>
 
-                    <div className="tbl-controls">
-                        <div className="tbl-pagination">
-                            <span>
-                                showing page {this.state.pagination_data.currentPage} out of {this.state.pagination_data.totalPages} pages
-                        </span>
-                            <img alt="" onClick={this.prev} src={AngleLeftIco} />
-                            <img alt="" onClick={this.next} src={AngleRightIco} />
+                            <div className="tbl-controls">
+                                <div className="tbl-pagination">
+                                    <span>
+                                        showing page {this.state.pagination_data.currentPage} out of {this.state.pagination_data.totalPages} pages
+                                    </span>
+                                    <img alt="" onClick={this.prev} src={AngleLeftIco} />
+                                    <img alt="" onClick={this.next} src={AngleRightIco} />
+                                </div>
+                                {
+                                    this.state.metaData.tblSummary
+                                        ? <div className="table-subtitle">{this.state.metaData.tblSummary}</div>
+                                        : null
+                                }
+                            </div>
                         </div>
-                        {
-                            this.state.metaData.tblSummary
-                                ? <div className="table-subtitle">{this.state.metaData.tblSummary}</div>
-                                : null
-                        }
                     </div>
-                </div>
-            </div>
+                )
+                : (<div>no data returned</div>)
+
         )
     }
 }

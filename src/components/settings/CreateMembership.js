@@ -69,7 +69,7 @@ CreateMembership.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    membership: state.settings.settings.membershipPlan,
+    membership: state.settings.membershipPlan,
     errors: state.errors
 });
 

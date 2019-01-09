@@ -25,11 +25,21 @@ class MembershipSettings extends Component {
         })
     }
     render() {
-        const { membership, loading } = this.props;
+        const { metaData, actions, collections, loading } = this.props.membership;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={membership} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateMembership toggle_modal={this.toggle_modal} />)
@@ -47,7 +57,7 @@ MembershipSettings.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    membership: state.settings.settings.membershipPlan
+    membership: state.settings.membershipPlan
 });
 
 export default connect(mapStateToProps, { getMemberships })(MembershipSettings)

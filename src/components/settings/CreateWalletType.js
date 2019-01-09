@@ -69,7 +69,7 @@ CreateWalletType.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    wallet: state.settings.settings.walletTypes,
+    wallet: state.settings.walletTypes,
     errors: state.errors
 });
 

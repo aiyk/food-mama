@@ -9,11 +9,9 @@ import './users.scss'
 
 class Users extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            openPopup: false
-        }
+    state = {
+        openPopup: false,
+        dataset: []
     }
 
     componentDidMount() {
@@ -25,11 +23,21 @@ class Users extends Component {
         })
     }
     render() {
-        const { users, loading } = this.props.user;
+        const { metaData, actions, collections, loading } = this.props.user;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={users} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateUser toggle_modal={this.toggle_modal} />)

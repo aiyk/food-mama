@@ -25,11 +25,21 @@ class RoleSettings extends Component {
         })
     }
     render() {
-        const { role, loading } = this.props;
+        const { metaData, actions, collections, loading } = this.props.role;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={role} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateRole toggle_modal={this.toggle_modal} />)
@@ -47,7 +57,7 @@ RoleSettings.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    role: state.settings.settings.roles
+    role: state.settings.roles
 });
 
 export default connect(mapStateToProps, { getRoles })(RoleSettings)

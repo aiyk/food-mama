@@ -25,11 +25,21 @@ class Branches extends Component {
         })
     }
     render() {
-        const { branches, loading } = this.props.branch;
+        const { metaData, actions, collections, loading } = this.props.branch;
+        let renderer;
+
+        renderer = <Table
+            dataset={collections}
+            metaData={metaData}
+            actions={actions}
+            loading={loading}
+            toggle_modal={this.toggle_modal}
+        />
 
         return (
             <div>
-                <Table payload={branches} loading={loading} toggle_modal={this.toggle_modal} />
+                {renderer}
+
                 {
                     this.state.openPopup
                         ? (<CreateBranch toggle_modal={this.toggle_modal} />)
